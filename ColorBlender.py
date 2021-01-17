@@ -13,7 +13,7 @@ def createCanvas(color, height, width):
 def displayImage(window_name, image):
     cv2.imshow(window_name, image)
 
-canvas = createCanvas([255, 255, 255], 300, 300)
+canvas = createCanvas([255, 255, 255], 640, 640)
 
 image_url = os.path.join(os.getcwd(), 'OpenCV/images/color_wheel.jpg')
 colorPalette = cv2.imread(image_url)
