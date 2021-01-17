@@ -4,14 +4,8 @@ import os
 
 #Create a white canvas
 def createCanvas(color, height, width):
-    colorNum = [0, 0, 0]
-
     x = np.zeros((height, width, 3), dtype=np.uint8)
-
-    if color == "white":
-        colorNum = [255, 255, 255]
-
-    x[:] = colorNum
+    x[:] = color
 
     return x
 
@@ -19,15 +13,13 @@ def createCanvas(color, height, width):
 def displayImage(window_name, image):
     cv2.imshow(window_name, image)
 
-canvas = createCanvas("white", 300, 300)
-
-displayImage('Canvas', canvas)
+canvas = createCanvas([255, 255, 255], 300, 300)
 
 image_url = os.path.join(os.getcwd(), 'OpenCV/images/color_wheel.jpg')
-
 colorPalette = cv2.imread(image_url)
 
-displayImage('Canvas', colorPalette)
+displayImage('Canvas', canvas)
+displayImage('Color Palette', colorPalette)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
